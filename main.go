@@ -9,10 +9,16 @@ func main() {
 	fmt.Println("lixiong")
 	fmt.Println("Day0416")
 	subab(2, 3)
+	sumab(2, 4)
 }
 
-func subab(a, b int) int {
+func sumab(a, b int) int {
 	sum := a + b
 	fmt.Println(sum)
 	return sum
+}
+
+func subab(a, b int) {
+	sub := a - b
+	fmt.Println(sub)
 }
