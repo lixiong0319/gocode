@@ -10,6 +10,7 @@ func main() {
 	fmt.Println("Day0416")
 	subab(2, 3)
 	sumab(2, 4)
+	fmt.Println("123")
 }
 
 func sumab(a, b int) int {
