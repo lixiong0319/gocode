@@ -2,17 +2,36 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
+	"net/http"
+	//"regexp"
 )
 
-func main() {
-	fmt.Println("Hello,World!123")
-	fmt.Println("lixiong")
-	fmt.Println("Day0416")
-	subab(2, 3)
+//test
+
+func Getdata() {
+	//获取网站的数据
+	resp, err := http.Get("https://www.baidu.com/")
+	HandleError(err, "http.Get url")
+	defer resp.Body.Close()
+	//读取页面内容
+	pageBytes, err := ioutil.ReadAll(resp.Body)
+	HandleError(err, "ioutil.ReadAll")
+	//字节转字符串
+	pageStr := string(pageBytes)
+	//-1代表全部数据
+	//results := re.FindAllStringSubmatch(pageStr, -1)
+
+	fmt.Println(pageStr)
 }
 
-func subab(a, b int) int {
-	sum := a + b
-	fmt.Println(sum)
-	return sum
+//处理异常
+func HandleError(err error, why string) {
+	if err != nil {
+		fmt.Println(why, err)
+	}
+}
+
+func main() {
+	Getdata()
 }
